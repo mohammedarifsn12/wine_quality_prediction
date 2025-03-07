@@ -7,5 +7,5 @@ dill
 flask
 catboost
 xgboost
-
+unicorn
 -e .
