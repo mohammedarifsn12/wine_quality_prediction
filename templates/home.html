@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Quality Prediction</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Wine Quality Prediction</h1>
+        <form action="{{ url_for('predict_data') }}" method="post">
+            <div class="mb-3">
+                <label>Fixed Acidity:</label>
+                <input type="number" step="0.01" name="fixed_acidity" required>
+            </div>
+            <div class="mb-3">
+                <label>Volatile Acidity:</label>
+                <input type="number" step="0.01" name="volatile_acidity" required>
+            </div>
+            <div class="mb-3">
+                <label>Citric Acid:</label>
+                <input type="number" step="0.01" name="citric_acid" required>
+            </div>
+            <div class="mb-3">
+                <label>Residual Sugar:</label>
+                <input type="number" step="0.01" name="residual_sugar" required>
+            </div>
+            <div class="mb-3">
+                <label>Chlorides:</label>
+                <input type="number" step="0.01" name="chlorides" required>
+            </div>
+            <div class="mb-3">
+                <label>Free Sulfur Dioxide:</label>
+                <input type="number" step="1" name="free_sulfur_dioxide" required>
+            </div>
+            <div class="mb-3">
+                <label>Total Sulfur Dioxide:</label>
+                <input type="number" step="1" name="total_sulfur_dioxide" required>
+            </div>
+            <div class="mb-3">
+                <label>Density:</label>
+                <input type="number" step="0.0001" name="density" required>
+            </div>
+            <div class="mb-3">
+                <label>pH:</label>
+                <input type="number" step="0.01" name="pH" required>
+            </div>
+            <div class="mb-3">
+                <label>Sulphates:</label>
+                <input type="number" step="0.01" name="sulphates" required>
+            </div>
+            <div class="mb-3">
+                <label>Alcohol:</label>
+                <input type="number" step="0.01" name="alcohol" required>
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="Predict Quality">
+            </div>
+        </form>
+
+        {% if results is not none %}
+            <h2>Predicted Wine Quality: {{ results }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

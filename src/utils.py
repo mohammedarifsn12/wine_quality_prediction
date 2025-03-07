@@ -21,7 +21,7 @@ def evaluate_model(x_train, y_train, x_test, y_test, models):
     try:
         report = {}
         best_model_name = None
-        best_model_score = float('-inf')  # Initialize with lowest score
+        best_model_score = float('-inf')  
         best_model = None
         for name, model in models.items():
             model.fit(x_train, y_train)  # Fix: Pass y_train during fitting
@@ -44,3 +44,9 @@ def evaluate_model(x_train, y_train, x_test, y_test, models):
         raise CustomException(e, sys)
 
 
+def load_object(path):
+    try:
+        with open(path,'rb') as obj:
+            return dill.load(obj)
+    except Exception as e:
+        raise CustomException(e,sys)

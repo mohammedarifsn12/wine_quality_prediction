@@ -21,7 +21,7 @@ class DataTransformation:
     
     def get_data_transformation_object(self):
         try:
-            numerical_col=["fixed acidity", "volatile acidity", "citric acid", "residual sugar", "chlorides", "free sulfur dioxide", "total sulfur dioxide", "density", "pH", "sulphates", "alcohol"]
+            numerical_col=["fixed_acidity", "volatile_acidity", "citric_acid", "residual_sugar", "chlorides", "free_sulfur_dioxide", "total_sulfur_dioxide", "density", "pH", "sulphates", "alcohol"]
             num_pipeline=Pipeline(
                 steps=[('scalaing',StandardScaler())]
             )
@@ -42,7 +42,7 @@ class DataTransformation:
             preprocessing_obj=self.get_data_transformation_object()
             
             target_column_name="quality"
-            numerical_col=["fixed acidity", "volatile acidity", "citric acid", "residual sugar", "chlorides", "free sulfur dioxide", "total sulfur dioxide", "density", "pH", "sulphates", "alcohol"]
+            numerical_col=["fixed_acidity", "volatile_acidity", "citric_acid", "residual_sugar", "chlorides", "free_sulfur_dioxide", "total_sulfur_dioxide", "density", "pH", "sulphates", "alcohol"]
 
             input_feature_train_df=train_df.drop([target_column_name],axis=1)
             target_feature_train_df=train_df[target_column_name]

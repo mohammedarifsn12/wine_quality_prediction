@@ -24,6 +24,9 @@ class DataIngestion:
         logger.info('Entered the data ingestion method')
         try:
             df=pd.read_csv('notebooks/data/winequality-red.csv')
+            print("Column names in the DataFrame:", df.columns.tolist())
+            df.columns = df.columns.str.replace(" ", "_")  # Replace spaces with underscores
+            df.to_csv("cleaned_dataset.csv", index=False)  # Save the cleaned dataset   
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
             df.to_csv(self.ingestion_config.raw_data_path,index=False,header=True)
             train_set,test_set=train_test_split(df,test_size=0.20,random_state=42)
