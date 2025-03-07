@@ -4,12 +4,11 @@ import numpy as np
 import pandas as pd
 from pipeline.predict_pipeline import Custom_data,predict_pipeline
 application=Flask(__name__)
-app=application
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/predictdata',methods=["GET","POST"])
+@application.route('/predictdata',methods=["GET","POST"])
 def predict_data():
     if request.method=="GET":
         return render_template('home.html')
@@ -37,7 +36,7 @@ def predict_data():
         return render_template('home.html',results=results[0])
 from flask import make_response
 
-@app.after_request
+@application.after_request
 def add_header(response):
     response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
     response.headers['Pragma'] = 'no-cache'
@@ -46,4 +45,4 @@ def add_header(response):
 
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0",debug=True)
+    application.run(host="0.0.0.0",port=5000,debug=True)
