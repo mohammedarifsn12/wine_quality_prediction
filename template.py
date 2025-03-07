@@ -25,6 +25,7 @@ list_of_files = [
 ]
 
 
+
 for file in list_of_files:
     file_path = Path(file)
     file_dir, file_name = os.path.split(file_path)
