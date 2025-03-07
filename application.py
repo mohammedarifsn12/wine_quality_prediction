@@ -1,7 +1,8 @@
 from flask import Flask, app, flash,request,render_template 
 import numpy as np
 import pandas as pd
-from pipeline.predict_pipeline import Custom_data,predict_pipeline
+from src.pipeline.predict_pipeline import Custom_data, predict_pipeline
+
 application=Flask(__name__)
 @application.route('/')
 def index():
